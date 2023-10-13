@@ -1,0 +1,23 @@
+main {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    margin: auto;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+input {
+    background-color: white;
+    width: 98%;
+    color: black;
+    border: 0px;
+}
+
+input:focus {
+    outline: none;
+}
+
+::placeholder {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    text-align: center;
+}
