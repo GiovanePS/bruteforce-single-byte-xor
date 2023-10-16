@@ -7,12 +7,18 @@ function Main() {
     const [resultsList, setResultsList] = useState<string[]>([]);
 
     const results = (input: string): void => {
+        setResultsList([])
         try {
             let results: string[] = []
 
             let inputLenght: number = input.length
-            for (let i: number = 0; i < inputLenght; i += 2) {
-                results.push(String.fromCharCode(parseInt(input.slice(i, i+2), 16)))
+            let hexXoredInput: string = '';
+            for (let caractere = 32; caractere < 127; caractere++) {
+                for (let i: number = 0; i < inputLenght; i += 2) {
+                    hexXoredInput += String.fromCharCode(parseInt(input.slice(i, i+2), 16) ^ caractere)
+                }
+                results.push(`Caractere:\xa0\xa0\xa0\xa0${String.fromCharCode(caractere)}\xa0\xa0\xa0\xa0= ${hexXoredInput}`)
+                hexXoredInput = ''
             }
 
             setResultsList(prevList => [...prevList, ...results])
