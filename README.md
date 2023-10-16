@@ -1,6 +1,6 @@
 # Projeto: Bruteforce Single-Byte Xor
 
 ## Build simples
-- `git clone git@github.com:GiovanePS/bruteforce-single-byte-xor.git`
-- `yarn install`
-- `yarn dev`
+1. `git clone git@github.com:GiovanePS/bruteforce-single-byte-xor.git`
+2. `yarn install`
+3. `yarn dev`
