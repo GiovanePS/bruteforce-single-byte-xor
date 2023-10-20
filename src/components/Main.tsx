@@ -3,11 +3,11 @@ import './Main.css'
 
 function Main() {
     
-    const [encodedString, setEncodedString] = useState("")
-    const [resultsList, setResultsList] = useState<string[]>([]);
+    const [inputString, setInputString] = useState<string>("")
+    const [resultsList, setResultsList] = useState<string[]>([])
+    const [option, setOption] = useState<string>("encode")
 
-    const results = (input: string): void => {
-        setResultsList([])
+    const decodeResults = (input: string): void => {
         try {
             let results: string[] = []
 
@@ -27,20 +27,39 @@ function Main() {
         }
     }
 
+    const encodeResults = (input: string) => {
+        try {
+            console.log("Funcionou!")
+        } catch (error) {
+            console.error((error as Error).message)
+        }
+    }
+
     const handleSubmit = (e: React.FormEvent) => {
+        setResultsList([])
         e.preventDefault()
-        results(encodedString)
+        if (option == "encode") {
+            encodeResults(inputString)
+        } else {
+            decodeResults(inputString)
+        }
     }
     
     return (
         <>
         <form onSubmit={handleSubmit}>
-            <main>
-                <input type='text' placeholder='Input' value={encodedString} onChange={e => setEncodedString(e.target.value)} />
-                {resultsList.map((result, index) => (
-                    <div key={index}>{result}</div>
-                ))}
-            </main>
+            <div id="input-section">
+                <main>
+                    <input type='text' placeholder='Input' value={inputString} onChange={e => setInputString(e.target.value)} />
+                    {resultsList.map((result, index) => (
+                        <div key={index}>{result}</div>
+                    ))}
+                </main>
+                <select name="option" id="option" value={option} onChange={e => setOption(e.target.value)}>
+                    <option value="encode">Encode</option>
+                    <option value="decode">Decode</option>
+                </select>
+            </div>
             <button>Ok</button>
         </form>
         </>

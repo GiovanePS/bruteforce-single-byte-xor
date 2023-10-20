@@ -2,7 +2,6 @@ main {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     display: flex;
     flex-direction: column;
-    margin: auto;
     background-color: white;
     margin-bottom: 20px;
     border-radius: 5px;
@@ -10,11 +9,17 @@ main {
 
 main > div {
     text-align: center;
-    /* margin: auto; */
+}
+
+#input-section {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
 }
 
 input {
-    width: 99%;
+    min-width: 700px;
     height: 30px;
     border: 0px;
     border-radius: 5px;
@@ -31,4 +36,16 @@ input:focus {
 ::placeholder {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     text-align: center;
+}
+
+#option  {
+    margin-left: 10px;
+    padding: 0.3em 0.3em;
+    color: white;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font-weight: 500;
+    font-size: 1em;
+    cursor: pointer;
 }
