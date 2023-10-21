@@ -12,7 +12,7 @@ function Main() {
             let results: string[] = []
 
             let inputLenght: number = input.length
-            let hexXoredInput: string = '';
+            let hexXoredInput: string = ''
             for (let caractere = 32; caractere < 127; caractere++) {
                 for (let i: number = 0; i < inputLenght; i += 2) {
                     hexXoredInput += String.fromCharCode(parseInt(input.slice(i, i+2), 16) ^ caractere)
@@ -29,7 +29,19 @@ function Main() {
 
     const encodeResults = (input: string) => {
         try {
-            console.log("Funcionou!")
+            let results: string[] = []
+
+            let hexOutput = ''
+            let inputLength = input.length
+            for (let caractere = 32; caractere < 127; caractere++) {
+                for (let i = 0; i < inputLength; i++) {
+                    hexOutput += (input.charCodeAt(i) ^ caractere).toString(16)
+                }
+                results.push(`Caractere:\xa0\xa0\xa0\xa0${String.fromCharCode(caractere)}\xa0\xa0\xa0\xa0= ${hexOutput}`)
+                hexOutput = ''
+            }
+
+            setResultsList(prevList => [...prevList, ...results])
         } catch (error) {
             console.error((error as Error).message)
         }

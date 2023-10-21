@@ -9,6 +9,7 @@ main {
 
 main > div {
     text-align: center;
+    padding: 1px 10px;
 }
 
 #input-section {
@@ -16,6 +17,7 @@ main > div {
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
+    margin-left: 100px;
 }
 
 input {
